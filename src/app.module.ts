@@ -5,7 +5,8 @@ import { SelectedArticlesModule } from './selected-articles/selected-articles.mo
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { WpUserModule } from './modules/wp-user/wp-user.module';
-import entities from './type-orm';
+import { PostsModule } from './modules/posts/posts.module';
+import entities from './db-entities';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import entities from './type-orm';
     }),
     UserModule,
     WpUserModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

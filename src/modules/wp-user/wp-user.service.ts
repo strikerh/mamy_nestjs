@@ -3,7 +3,7 @@ import { CreateWpUserDto } from './dto/create-wp-user.dto';
 import { UpdateWpUserDto } from './dto/update-wp-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { WpUser } from '../../type-orm/wp-user.entity';
+import { WpUser } from '../../db-entities/wp-user.entity';
 
 @Injectable()
 export class WpUserService {
