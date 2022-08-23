@@ -1,6 +1,7 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { WpUserMeta } from './wp-usermeta.entity';
 import { JoinColumn } from 'typeorm';
+import { WpPost } from './wp-post.entity';
 
 @Entity({ name: 'wp_users' })
 export class WpUser {
@@ -16,6 +17,8 @@ export class WpUser {
   @Column({ type: 'varchar', length: 250 }) display_name: string;
 
   @OneToMany(() => WpUserMeta, (wpUserMeta) => wpUserMeta.wpUser)
-  @JoinColumn({ name: 'ID' })
   wpUserMeta: WpUserMeta[];
+
+  @OneToMany(() => WpPost, (wpPost) => wpPost.wpUser)
+  wpPosts: WpPost[];
 }

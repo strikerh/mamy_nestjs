@@ -11,7 +11,7 @@ export class WpPostMeta {
   @Column({ type: 'longtext' }) meta_value: string;
 
   @ManyToOne(() => WpPost, (wpPost) => wpPost.wpPostMeta)
-  @JoinColumn({ name: 'meta_id' })
+  @JoinColumn({ name: 'post_id' })
   wpPost: WpPost;
 }
 

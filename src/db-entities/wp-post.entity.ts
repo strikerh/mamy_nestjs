@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { WpPostMeta } from './wp-post-meta.entity';
+import { WpUser } from './wp-user.entity';
 
 @Entity({ name: 'wp_posts' })
 export class WpPost {
@@ -28,8 +29,11 @@ export class WpPost {
   @Column({ type: 'bigint' }) comment_count: number;
 
   @OneToMany(() => WpPostMeta, (wpPostMeta) => wpPostMeta.wpPost)
-  @JoinColumn({ name: 'ID' })
   wpPostMeta: WpPostMeta[];
+
+  @ManyToOne(() => WpUser, (wpUser) => wpUser.wpPosts)
+  @JoinColumn({ name: 'post_author' })
+  wpUser: WpUser;
 }
 
 /*

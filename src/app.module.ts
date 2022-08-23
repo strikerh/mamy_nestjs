@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { WpUserModule } from './modules/wp-user/wp-user.module';
 import { PostsModule } from './modules/posts/posts.module';
+import { WeeklyFeedsModule } from './modules/weekly-feeds/weekly-feeds.module';
 import entities from './db-entities';
 
 @Module({
@@ -14,7 +15,7 @@ import entities from './db-entities';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
-      port: 10023,
+      port: 10039,
       username: 'root',
       password: 'root',
       database: 'local',
@@ -24,6 +25,7 @@ import entities from './db-entities';
     UserModule,
     WpUserModule,
     PostsModule,
+    WeeklyFeedsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

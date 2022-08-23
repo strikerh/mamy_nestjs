@@ -10,6 +10,6 @@ export class WpUserMeta {
   @Column({ type: 'varchar', length: 255 }) meta_value: string;
 
   @ManyToOne(() => WpUser, (wpUser) => wpUser.wpUserMeta)
-  @JoinColumn({ name: 'umeta_id' })
+  @JoinColumn({ name: 'user_id' })
   wpUser: WpUser;
 }
