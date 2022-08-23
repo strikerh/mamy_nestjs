@@ -15,7 +15,7 @@ import entities from './db-entities';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
-      port: 10039,
+      port: 3306,
       username: 'mamydays_momydays',
       password: '^XMO4BcR]eye',
       database: 'mamydays_momydays',
